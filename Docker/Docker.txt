@@ -1,0 +1,33 @@
+----------INSTALL DOCKER----------
+sudo apt-get update
+
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+sudo apt-key fingerprint 0EBFCD88
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+----------WORK WITH DOCKER----------
+sudo docker ps 
+---
+sudo docker ps -a
+---
+sudo docker images
+---
+sudo docker start 'name-image'
+---
+sudo docker stop 'name-image'
+---
+sudo docker rm 'name-image'
+---
+sudo docker build -t some-content-nginx -name some-nginx . -- Создаем снимок с тегом some-content-nginx и именем some-nginx
+---
+sudo docker run --name some-nginx -- Запускает собранный снимок
+---
+sudo docker rmi some-content-nginx -- Удаляет снимок контейнера
